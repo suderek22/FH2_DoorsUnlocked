@@ -8,16 +8,11 @@ through named choices; changes apply immediately and are saved beside the DLL.
 
 ## Requirements
 
-- Windows x64, Azimuth and your own Forza Horizon 2 game files.
 - FH2 Mod Platform **2.8.0 or newer** (API 9 named-choice settings).
 - An XInput controller. Keyboard-only input is not implemented by this mod.
 - A car with the corresponding animation states. Not every car has opening parts,
   active aero or an explode animation.
 
-The native addresses target the retail FH2 Xbox One build used by Azimuth
-(24 November 2015). Unsupported or modified animation entry points are rejected
-and reported in `fh2-mods\platform.log`. New game builds are not automatically supported.
-No game files, Azimuth, mod platform or Extra Options are included.
 
 ## Installation
 
@@ -30,9 +25,6 @@ No game files, Azimuth, mod platform or Extra Options are included.
 5. Select **Action** and **Mapped button**. Defaults are **Explode** and **LS**.
 6. Press and release the selected button to toggle. Holding it does not repeat.
 
-For Car Pack Studio, use **Mods > Open Studio Mods**, then put the DLL and INI
-in that folder. Stop and restart the wrapper after installing or replacing the DLL.
-Do not install into Studio's bundled `_internal\runtime` when testing a separate sandbox.
 
 ## Actions
 
@@ -86,16 +78,6 @@ Button=0
 Invalid saved indices are logged and reset to the default. The runtime folder
 must be writable to persist settings.
 
-## Updates
-
-The mod registers `suderek22/FH2_DoorsUnlocked`, version `1.0.0`, with the platform's
-update service. The platform checks GitHub releases and displays its normal
-new-version notification. This does not download or install updates automatically;
-network access and update notices are managed by the platform.
-
-- Source: https://github.com/suderek22/FH2_DoorsUnlocked
-- Releases: https://github.com/suderek22/FH2_DoorsUnlocked/releases
-
 ## Compatibility and limitations
 
 - Visual results depend on the car's assets and native animation graph.
@@ -109,31 +91,3 @@ network access and update notices are managed by the platform.
 - Installation and compiled-DLL settings/action tests are automated; visual checks
   of every car/action/controller combination still require in-game testing.
 - No gameplay restrictions, vehicle physics or save data are patched.
-
-## Building from source
-
-Requires Visual Studio 2022 C++ Build Tools, a Windows SDK and CMake 3.20+.
-The platform API header is vendored in `include`; no platform source checkout is required.
-
-```powershell
-cmake -S . -B build\1.0.0 -A x64
-cmake --build build\1.0.0 --config Release
-ctest --test-dir build\1.0.0 -C Release --output-on-failure
-```
-
-The DLL is written to `dist\DoorsUnlocked.dll`. Its Windows file/product version
-and registered mod version are all **1.0.0**.
-
-`build.ps1` builds and runs tests; optional `-DeployTo "C:\path\to\runtime"` installs
-the DLL and a default INI only if one is absent. It refuses to overwrite a running
-selected Azimuth installation. Follow your system's PowerShell execution policy.
-
-Tests cover toggle edges, all action mappings, explode/implode alternation, missing
-states, two-door cars, mixed individual/group door state, real DLL registration,
-default choices, INI persistence, invalid values and update-service metadata.
-
-## Credits
-
-FH2 Mod Platform and its SDK: Trinculo54 and contributors.
-The bundled SDK header is MIT licensed; see `include\LICENSE-fh2mod.txt`
-and `THIRD-PARTY-NOTICES.txt`.
