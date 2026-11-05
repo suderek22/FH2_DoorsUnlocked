@@ -1,4 +1,5 @@
 # FH2 DoorsUnlocked 1.0.0
+<img width="800" height="450" alt="ezgif com-optimize" src="https://github.com/user-attachments/assets/20304e18-c6d3-4b7c-aeee-f00c015cbb7c" />
 
 By [suderek](https://github.com/suderek22).
 
