@@ -1,0 +1,8 @@
+DoorsUnlocked 1.0.0
+
+FH2 Mod Platform SDK (fh2mod.h), platform 2.8.0
+Copyright (c) 2026 Trinculo54
+MIT License. Full license: include\LICENSE-fh2mod.txt.
+
+The release contains DoorsUnlocked and its default settings only.
+Azimuth, FH2 Mod Platform, Extra Options and game files are not redistributed.

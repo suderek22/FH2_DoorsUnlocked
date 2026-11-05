@@ -1,0 +1,10 @@
+/build/
+/dist/
+/release/
+*.obj
+*.pdb
+*.ilk
+*.lib
+*.exp
+*.res
+__pycache__/
